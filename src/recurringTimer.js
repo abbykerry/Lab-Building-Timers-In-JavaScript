@@ -25,10 +25,18 @@
 function recurringTimer(message, interval) {
   // Set up a timer using setInterval to log the message
   // Return the timer ID
+  const timerId = setInterval(() => {
+    // Core task: log the message
+    console.log(message);
+  }, interval);
+
+  // The timer ID is returned so external code (like the stop function) can stop it.
+  return timerId;
 }
 
 function stopRecurringTimer(timerId) {
   // Stop the timer using clearInterval
+  clearInterval(timerId);
 }
 
 module.exports = { recurringTimer, stopRecurringTimer };

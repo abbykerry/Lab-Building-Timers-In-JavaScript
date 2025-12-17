@@ -14,6 +14,18 @@ function delayedReminder(message, delay) {
   // Return a promise
   // Use setTimeout to log the message after the specified delay
   // Resolve the promise once the message is logged
+   return new Promise((resolve) => {
+    
+    // setTimeout schedules the callback function to run once after the specified delay.
+    setTimeout(() => {
+      // 1. Log the reminder message (the core task, runs after the delay)
+      console.log(message);
+      
+      // 2. Resolve the Promise to signal to the caller (the test) that the reminder is done.
+      resolve();
+      
+    }, delay);
+  });
 }
 
 module.exports = { delayedReminder };
